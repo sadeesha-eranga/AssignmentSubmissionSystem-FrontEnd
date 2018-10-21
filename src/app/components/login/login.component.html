@@ -1,0 +1,20 @@
+<div class="login-page">
+  <div class="form">
+    <form class="login-form" #frmLogin="ngForm">
+      <input
+        type="text"
+        name="username"
+        placeholder="username"
+        required
+        [(ngModel)]="user.username">
+      <input
+        type="password"
+        name="password"
+        placeholder="password"
+        required
+        [(ngModel)]="user.password">
+      <!--<button mat-raised-button (click)="authenticateUser()" [disabled]="!frmLogin.valid">Login</button>-->
+      <button mat-raised-button color="primary" routerLink="/dashboard" [disabled]="!frmLogin.valid">Login</button>
+    </form>
+  </div>
+</div>
