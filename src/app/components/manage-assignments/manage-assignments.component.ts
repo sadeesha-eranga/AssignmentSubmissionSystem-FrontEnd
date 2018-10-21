@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import swal from 'sweetalert2';
+
+
 
 @Component({
   selector: 'app-manage-assignments',
@@ -12,4 +15,7 @@ export class ManageAssignmentsComponent implements OnInit {
   ngOnInit() {
   }
 
+  showAlert() {
+    swal('Success', 'SweetAlert showed successfully', 'success');
+  }
 }

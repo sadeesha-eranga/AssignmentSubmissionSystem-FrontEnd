@@ -17,6 +17,7 @@ import {AppRoutingModule} from './app-routing.module';
 import { ManageStudentsComponent } from './components/manage-students/manage-students.component';
 import { ManageAssignmentsComponent } from './components/manage-assignments/manage-assignments.component';
 import { ManageResourcesComponent } from './components/manage-resources/manage-resources.component';
+import {SweetAlert2Module} from '@toverux/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ManageResourcesComponent } from './components/manage-resources/manage-r
     MatSortModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SweetAlert2Module
   ],
   providers: [
     UserService,
