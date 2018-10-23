@@ -17,6 +17,11 @@
 }
 
 #title {
-  font-family: "Berlin Sans FB";
+  font-family: "Arial";
   color: #f2f2f2;
+}
+
+#content_div {
+  width: 90%;
+  margin: 20px auto;
 }

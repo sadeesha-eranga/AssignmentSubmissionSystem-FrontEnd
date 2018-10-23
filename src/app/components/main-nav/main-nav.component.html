@@ -1,7 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [mode]="(isHandset$ | async) ? 'push' : 'side'"
                [opened]="!(isHandset$ | async)">
     <mat-toolbar><i class="material-icons">account_circle</i> Admin</mat-toolbar>
     <mat-nav-list>
@@ -23,6 +23,8 @@
       <span id="title">Assignment Submission System</span>
     </mat-toolbar>
     <!-- Add Content Here -->
-    <ng-content></ng-content>
+    <div id="content_div">
+      <ng-content></ng-content>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

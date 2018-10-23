@@ -1,3 +1,55 @@
 <app-main-nav>
+  <h1>Manage Students</h1>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-card-title>Student Details Form</mat-card-title>
+    </mat-expansion-panel-header>
+    <mat-card-content>
+      <div class="example-container">
+        <mat-form-field>
+          <input matInput placeholder="Name">
+        </mat-form-field>
 
+        <mat-form-field>
+          <input matInput placeholder="Email">
+        </mat-form-field>
+
+        <mat-form-field style="width: 250px">
+          <input matInput [matDatepicker]="picker" placeholder="Date of Birth">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field style="width: 250px">
+          <mat-select placeholder="Gender">
+            <mat-option value="option">Male</mat-option>
+            <mat-option value="option">Female</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Mobile">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select placeholder="Batch">
+            <mat-option value="option">43 - Panadura</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <div id="actionButtons">
+        <button mat-raised-button color="warn">Delete</button>
+        <button mat-raised-button style="background-color: darkorange">Update</button>
+        <button mat-raised-button color="primary">Save</button>
+      </div>
+    </mat-card-actions>
+  </mat-expansion-panel>
+  <br>
+  <mat-divider></mat-divider>
+  <br>
+  <app-student-table></app-student-table>
 </app-main-nav>
