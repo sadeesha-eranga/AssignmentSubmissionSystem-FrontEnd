@@ -14,7 +14,7 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatListModule,
+  MatListModule, MatMenuModule,
   MatNativeDateModule,
   MatPaginatorModule,
   MatSelectModule,
@@ -71,7 +71,8 @@ import { StudentTableComponent } from './components/student-table/student-table.
     MatExpansionModule,
     MatDividerModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatMenuModule
   ],
   providers: [
     UserService,
