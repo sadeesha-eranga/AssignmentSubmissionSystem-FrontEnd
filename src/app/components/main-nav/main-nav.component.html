@@ -5,6 +5,7 @@
                [opened]="!(isHandset$ | async)">
     <mat-toolbar><i class="material-icons">account_circle</i> Admin</mat-toolbar>
     <mat-nav-list>
+      <a mat-list-item routerLink="/batches">Manage Batches</a>
       <a mat-list-item routerLink="/students">Manage Students</a>
       <a mat-list-item routerLink="/assignments">Manage Assignments</a>
       <a mat-list-item routerLink="/resources">Manage Resources</a>

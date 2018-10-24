@@ -6,6 +6,7 @@ import {MainNavComponent} from './components/main-nav/main-nav.component';
 import {ManageStudentsComponent} from './components/manage-students/manage-students.component';
 import {ManageAssignmentsComponent} from './components/manage-assignments/manage-assignments.component';
 import {ManageResourcesComponent} from './components/manage-resources/manage-resources.component';
+import {ManageBatchesComponent} from './components/manage-batches/manage-batches.component';
 
 const appRoutes: Routes = [
   {path: '', component: LoginComponent},
@@ -14,6 +15,7 @@ const appRoutes: Routes = [
   {path: 'students', component: ManageStudentsComponent, canActivate: [AuthGuard]},
   {path: 'assignments', component: ManageAssignmentsComponent, canActivate: [AuthGuard]},
   {path: 'resources', component: ManageResourcesComponent, canActivate: [AuthGuard]},
+  {path: 'batches', component: ManageBatchesComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

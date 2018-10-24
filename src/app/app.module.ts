@@ -35,6 +35,8 @@ import {ManageAssignmentsComponent} from './components/manage-assignments/manage
 import {ManageResourcesComponent} from './components/manage-resources/manage-resources.component';
 import {SweetAlert2Module} from '@toverux/ngx-sweetalert2';
 import { StudentTableComponent } from './components/student-table/student-table.component';
+import { ManageBatchesComponent } from './components/manage-batches/manage-batches.component';
+import { BatchTableComponent } from './components/batch-table/batch-table.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { StudentTableComponent } from './components/student-table/student-table.
     ManageStudentsComponent,
     ManageAssignmentsComponent,
     ManageResourcesComponent,
-    StudentTableComponent
+    StudentTableComponent,
+    ManageBatchesComponent,
+    BatchTableComponent
   ],
   imports: [
     BrowserModule,

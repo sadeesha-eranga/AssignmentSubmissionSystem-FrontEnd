@@ -18,3 +18,7 @@ mat-card {
 #actionButtons button {
   margin: 0 2px;
 }
+
+table {
+  width: 100%;
+}

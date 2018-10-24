@@ -1,0 +1,66 @@
+<app-main-nav>
+  <h1>Manage Batches</h1>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-card-title>Batch Details Form</mat-card-title>
+    </mat-expansion-panel-header>
+    <mat-card-content>
+      <div class="container">
+        <mat-form-field>
+          <input matInput placeholder="Batch No" [(ngModel)]="selectedBatch.batchNo" type="number" >
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Name" [(ngModel)]="selectedBatch.name" >
+        </mat-form-field>
+
+        <mat-form-field style="width: 250px">
+          <mat-select placeholder="Branch" [(ngModel)]="selectedBatch.branch" >
+            <mat-option value="Panadura">Panadura</mat-option>
+            <mat-option value="Galle">Galle</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <div id="actionButtons">
+        <button mat-raised-button style="background-color: darkorange" (click)="updateBatch()">Update</button>
+        <button mat-raised-button color="primary" (click)="saveBatch()">Save</button>
+      </div>
+    </mat-card-actions>
+  </mat-expansion-panel>
+  <br>
+  <mat-divider></mat-divider>
+  <br>
+  <!--<app-batch-table></app-batch-table>-->
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+    <ng-container matColumnDef="batchNo">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Batch No</th>
+      <td mat-cell *matCellDef="let row">{{row.batchNo}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header>Name</th>
+      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+    </ng-container>
+
+    <!-- Branch Column -->
+    <ng-container matColumnDef="branch">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Branch</th>
+      <td mat-cell *matCellDef="let row">{{row.branch}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator #paginator
+                 [length]="dataSource.data.length"
+                 [pageIndex]="0"
+                 [pageSize]="50"
+                 [pageSizeOptions]="[5, 50, 100, 250]">
+  </mat-paginator>
+</app-main-nav>
