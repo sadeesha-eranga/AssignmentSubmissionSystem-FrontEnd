@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./manage-students.component.css']
 })
 export class ManageStudentsComponent implements OnInit {
+  maxDate = new Date();
+  selectedDate;
 
   constructor() { }
 
   ngOnInit() {
+    this.selectedDate = new Date();
   }
-
 }

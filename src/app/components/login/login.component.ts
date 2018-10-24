@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../../models/user';
 import {Router} from '@angular/router';
 import {UserService} from '../../services/user.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -17,16 +18,16 @@ export class LoginComponent implements OnInit {
   }
 
   authenticateUser() {
-    // this.userService.authenticateUser(this.user).subscribe((result) => {
-    //   if (result) {
-    //     this.router.navigate(['/dashboard']);
-    //   } else {
-    //     swal({
-    //       title: 'Invalid credentials!',
-    //       text: 'Please check the username, password and try again',
-    //       icon: 'error',
-    //     });
-    //   }
-    // });
+    this.userService.authenticateUser(this.user).subscribe((result) => {
+      if (result) {
+        this.router.navigate(['/dashboard']);
+      } else {
+        swal({
+          title: 'Invalid Credentials!',
+          text: 'Please check the username, password and try again.',
+          type: 'error'
+        });
+      }
+    });
   }
 }
