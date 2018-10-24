@@ -5,7 +5,7 @@ import {User} from '../models/user';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
-const URL = 'http://localhost:8080/api/v1/login';
+const URL = 'http://localhost:8080/api/v1/user/login';
 
 @Injectable({
   providedIn: 'root'
