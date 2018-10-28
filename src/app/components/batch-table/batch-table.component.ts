@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort} from '@angular/material';
-import {BatchTableDataSource} from './batch-table-datasource';
+import {BatchTableDataSource} from '../data-sources/batch-table-datasource';
 import {BatchService} from '../../services/batch.service';
 
 @Component({

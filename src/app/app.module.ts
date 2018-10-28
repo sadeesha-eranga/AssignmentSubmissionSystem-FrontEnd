@@ -14,7 +14,8 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatListModule, MatMenuModule,
+  MatListModule,
+  MatMenuModule,
   MatNativeDateModule,
   MatPaginatorModule,
   MatSelectModule,
@@ -34,9 +35,9 @@ import {ManageStudentsComponent} from './components/manage-students/manage-stude
 import {ManageAssignmentsComponent} from './components/manage-assignments/manage-assignments.component';
 import {ManageResourcesComponent} from './components/manage-resources/manage-resources.component';
 import {SweetAlert2Module} from '@toverux/ngx-sweetalert2';
-import { StudentTableComponent } from './components/student-table/student-table.component';
-import { ManageBatchesComponent } from './components/manage-batches/manage-batches.component';
-import { BatchTableComponent } from './components/batch-table/batch-table.component';
+import {ManageBatchesComponent} from './components/manage-batches/manage-batches.component';
+import {BatchTableComponent} from './components/batch-table/batch-table.component';
+import {StudentService} from './services/student.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,6 @@ import { BatchTableComponent } from './components/batch-table/batch-table.compon
     ManageStudentsComponent,
     ManageAssignmentsComponent,
     ManageResourcesComponent,
-    StudentTableComponent,
     ManageBatchesComponent,
     BatchTableComponent
   ],
@@ -76,10 +76,11 @@ import { BatchTableComponent } from './components/batch-table/batch-table.compon
     MatDividerModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatMenuModule
+    MatMenuModule,
   ],
   providers: [
     UserService,
+    StudentService,
     AuthGuard
   ],
   bootstrap: [AppComponent]

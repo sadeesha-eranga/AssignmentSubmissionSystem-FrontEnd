@@ -2,14 +2,8 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {Batch} from '../../models/batch';
 import {BatchService} from '../../services/batch.service';
 import swal from 'sweetalert2';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
-import {BatchTableDataSource} from '../batch-table/batch-table-datasource';
-
-export interface PeriodicElement {
-  batchNo: number;
-  name: string;
-  branch: string;
-}
+import {MatPaginator, MatSort} from '@angular/material';
+import {BatchTableDataSource} from '../data-sources/batch-table-datasource';
 
 @Component({
   selector: 'app-manage-batches',
@@ -78,7 +72,9 @@ export class ManageBatchesComponent implements OnInit {
 
   loadBatches() {
     this.batchService.getAllBatches().subscribe((result) => {
-      this.dataSource = new BatchTableDataSource(this.paginator, this.sort, result);
+      if (null != result) {
+        this.dataSource = new BatchTableDataSource(this.paginator, this.sort, result);
+      }
     });
   }
 

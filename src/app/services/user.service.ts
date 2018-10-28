@@ -18,7 +18,7 @@ export class UserService {
   authenticateUser(user: User): Observable<boolean> {
     return this.http.post<boolean>(URL, user).pipe(map((result) => {
         if (result) {
-          localStorage.setItem('logged', 'true');
+          sessionStorage.setItem('logged', 'true');
         }
         return result;
       })
@@ -26,7 +26,7 @@ export class UserService {
   }
 
   logout() {
-    localStorage.removeItem('logged');
+    sessionStorage.removeItem('logged');
     this.router.navigate(['/login']);
   }
 }
