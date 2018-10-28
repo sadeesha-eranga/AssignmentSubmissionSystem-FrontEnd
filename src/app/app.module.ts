@@ -37,6 +37,7 @@ import {SweetAlert2Module} from '@toverux/ngx-sweetalert2';
 import {ManageBatchesComponent} from './components/manage-batches/manage-batches.component';
 import {StudentService} from './services/student.service';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     MatDatepickerModule,
     MatNativeDateModule,
     MatMenuModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgbModule
   ],
   providers: [
     UserService,

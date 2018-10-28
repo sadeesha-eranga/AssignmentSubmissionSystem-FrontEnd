@@ -1,11 +1,10 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BatchService} from '../../services/batch.service';
 import {Batch} from '../../models/batch';
 import {Student} from '../../models/student';
 import {StudentService} from '../../services/student.service';
-import {MatPaginator, MatSort} from '@angular/material';
-import {StudentTableDataSource} from '../data-sources/student-table-data-source';
 import swal from 'sweetalert2';
+import {MatDatepickerInputEvent} from '@angular/material';
 
 @Component({
   selector: 'app-manage-students',
@@ -14,7 +13,7 @@ import swal from 'sweetalert2';
   providers: []
 })
 export class ManageStudentsComponent implements OnInit {
-  startDate = new Date(1990, 0, 1);
+  // startDate = new Date(1990, 0, 1);
   maxDate = new Date();
   selectedStudent: Student = new Student();
   batches: Batch[] = [];
@@ -102,5 +101,11 @@ export class ManageStudentsComponent implements OnInit {
 
   clear() {
     this.selectedStudent = new Student();
+  }
+
+  addEvent(event: MatDatepickerInputEvent<Date>) {
+    const date = event.value;
+    const month = date.getMonth() > 9 ? date.getMonth() : '0' + date.getMonth();
+    this.selectedStudent.dob = date.getFullYear() + '-' + month + '-' + date.getDate();
   }
 }
