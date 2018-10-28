@@ -1,9 +1,7 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Batch} from '../../models/batch';
 import {BatchService} from '../../services/batch.service';
 import swal from 'sweetalert2';
-import {MatPaginator, MatSort} from '@angular/material';
-import {BatchTableDataSource} from '../data-sources/batch-table-datasource';
 
 @Component({
   selector: 'app-manage-batches',
@@ -12,17 +10,13 @@ import {BatchTableDataSource} from '../data-sources/batch-table-datasource';
 })
 export class ManageBatchesComponent implements OnInit {
   selectedBatch: Batch = new Batch();
-  dataSource: BatchTableDataSource;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-
-  displayedColumns = ['batchNo', 'name', 'branch'];
+  batches: Array<Batch> = [];
+  isBatchSelected = false;
 
   constructor(private batchService: BatchService) {
   }
 
   ngOnInit() {
-    this.dataSource = new BatchTableDataSource(this.paginator, this.sort, []);
     this.loadBatches();
   }
 
@@ -67,15 +61,22 @@ export class ManageBatchesComponent implements OnInit {
   }
 
   clear() {
+    this.isBatchSelected = false;
     this.selectedBatch = new Batch();
   }
 
   loadBatches() {
     this.batchService.getAllBatches().subscribe((result) => {
       if (null != result) {
-        this.dataSource = new BatchTableDataSource(this.paginator, this.sort, result);
+        this.batches = result;
+        console.log(result);
       }
     });
+  }
+
+  selectBatch(batch: Batch) {
+    this.isBatchSelected = true;
+    this.selectedBatch = batch;
   }
 
 }

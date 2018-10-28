@@ -19,6 +19,22 @@ mat-card {
   margin: 0 2px;
 }
 
+#tblStudents tbody{
+  background-color: white;
+}
+
 table {
   width: 100%;
+}
+
+table tr{
+  cursor: pointer;
+}
+
+table tr th:first-child, table tr td:first-child, table tr td:nth-child(4){
+  text-align: center;
+}
+
+.selected{
+  background-color: lightgray;
 }

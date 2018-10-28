@@ -20,4 +20,16 @@ export class StudentService {
   getAllStudents(): Observable<Array<Student>> {
     return this.http.get<Array<Student>>(URL);
   }
+
+  deleteStudent(studentId: number): Observable<boolean> {
+    return this.http.delete<boolean>(URL + '/' + studentId);
+  }
+
+  updateStudent(student: Student): Observable<boolean> {
+    return this.http.put<boolean>(URL, student);
+  }
+
+  searchStudent(studentId: number): Observable<Student> {
+    return this.http.get<Student>(URL + '/' + studentId);
+  }
 }

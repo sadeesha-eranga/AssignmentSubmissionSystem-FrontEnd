@@ -18,16 +18,11 @@ export class ManageStudentsComponent implements OnInit {
   maxDate = new Date();
   selectedStudent: Student = new Student();
   batches: Batch[] = [];
-  dataSource: StudentTableDataSource;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-
-  displayedColumns = ['studentId', 'name', 'branch', 'gender', 'dob', 'email', 'mobile'];
+  students: Array<Student> = [];
 
   constructor(private batchService: BatchService, private studentService: StudentService) { }
 
   ngOnInit() {
-    this.dataSource = new StudentTableDataSource(this.paginator, this.sort, []);
     this.loadStudents();
     this.batchService.getAllBatches().subscribe((result) => {
       this.batches = result;
@@ -56,8 +51,53 @@ export class ManageStudentsComponent implements OnInit {
 
   loadStudents() {
     this.studentService.getAllStudents().subscribe((result) => {
-      this.dataSource = new StudentTableDataSource(this.paginator, this.sort, result);
+      this.students = result;
+      console.log(result);
     });
+  }
+
+  deleteStudent() {
+    this.studentService.deleteStudent(this.selectedStudent.studentId).subscribe((result) => {
+      if (result) {
+        swal({
+          title: 'Successful!',
+          text: 'Student has been deleted successfully.',
+          type: 'success'
+        });
+        this.clear();
+        this.loadStudents();
+      } else {
+        swal({
+          title: 'Failed!',
+          text: 'Unable to delete the student.',
+          type: 'error'
+        });
+      }
+    });
+  }
+
+  updateStudent() {
+    this.studentService.updateStudent(this.selectedStudent).subscribe((result) => {
+      if (result) {
+        swal({
+          title: 'Successful!',
+          text: 'Student has been updated successfully.',
+          type: 'success'
+        });
+        this.clear();
+        this.loadStudents();
+      } else {
+        swal({
+          title: 'Failed!',
+          text: 'Unable to update the student.',
+          type: 'error'
+        });
+      }
+    });
+  }
+
+  selectStudent(student: Student) {
+    this.selectedStudent = student;
   }
 
   clear() {

@@ -24,7 +24,6 @@ import {
   MatTableModule,
   MatToolbarModule
 } from '@angular/material';
-import {DataTableComponent} from './components/data-table/data-table.component';
 import {LoginComponent} from './components/login/login.component';
 import {UserService} from './services/user.service';
 import {AuthGuard} from './auth.guard';
@@ -36,20 +35,18 @@ import {ManageAssignmentsComponent} from './components/manage-assignments/manage
 import {ManageResourcesComponent} from './components/manage-resources/manage-resources.component';
 import {SweetAlert2Module} from '@toverux/ngx-sweetalert2';
 import {ManageBatchesComponent} from './components/manage-batches/manage-batches.component';
-import {BatchTableComponent} from './components/batch-table/batch-table.component';
 import {StudentService} from './services/student.service';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavComponent,
-    DataTableComponent,
     LoginComponent,
     ManageStudentsComponent,
     ManageAssignmentsComponent,
     ManageResourcesComponent,
     ManageBatchesComponent,
-    BatchTableComponent
   ],
   imports: [
     BrowserModule,
@@ -77,6 +74,7 @@ import {StudentService} from './services/student.service';
     MatDatepickerModule,
     MatNativeDateModule,
     MatMenuModule,
+    NgxPaginationModule
   ],
   providers: [
     UserService,
