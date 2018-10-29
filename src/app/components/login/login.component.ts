@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from '../../models/user';
+import {Admin} from '../../models/admin';
 import {Router} from '@angular/router';
-import {UserService} from '../../services/user.service';
+import {AdminService} from '../../services/admin.service';
 import swal from 'sweetalert2';
 
 @Component({
@@ -10,9 +10,9 @@ import swal from 'sweetalert2';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  user: User = new User();
+  user: Admin = new Admin();
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: AdminService, private router: Router) { }
 
   ngOnInit() {
   }

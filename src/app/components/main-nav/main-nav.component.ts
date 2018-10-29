@@ -3,7 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {Router} from '@angular/router';
-import {UserService} from '../../services/user.service';
+import {AdminService} from '../../services/admin.service';
 
 @Component({
   selector: 'app-main-nav',
@@ -17,7 +17,7 @@ export class MainNavComponent {
       map(result => result.matches)
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private userService: UserService, private router: Router) {}
+  constructor(private breakpointObserver: BreakpointObserver, private userService: AdminService, private router: Router) {}
 
   logout() {
     this.userService.logout();

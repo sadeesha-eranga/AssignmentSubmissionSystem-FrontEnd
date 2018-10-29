@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
-import {User} from '../models/user';
+import {Admin} from '../models/admin';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
-const URL = 'http://localhost:8080/api/v1/user/login';
+const URL = 'http://localhost:8080/api/v1/admin/login';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class AdminService {
 
   constructor(private http: HttpClient, private router: Router) {
   }
 
-  authenticateUser(user: User): Observable<boolean> {
+  authenticateUser(user: Admin): Observable<boolean> {
     return this.http.post<boolean>(URL, user).pipe(map((result) => {
         if (result) {
           sessionStorage.setItem('logged', 'true');

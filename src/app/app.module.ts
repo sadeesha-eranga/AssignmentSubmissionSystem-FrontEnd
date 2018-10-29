@@ -25,7 +25,7 @@ import {
   MatToolbarModule
 } from '@angular/material';
 import {LoginComponent} from './components/login/login.component';
-import {UserService} from './services/user.service';
+import {AdminService} from './services/admin.service';
 import {AuthGuard} from './auth.guard';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
@@ -79,7 +79,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     NgbModule
   ],
   providers: [
-    UserService,
+    AdminService,
     StudentService,
     AuthGuard
   ],
