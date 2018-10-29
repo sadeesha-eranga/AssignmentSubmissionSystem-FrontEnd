@@ -18,6 +18,7 @@ export class ManageStudentsComponent implements OnInit {
   selectedStudent: Student = new Student();
   batches: Batch[] = [];
   students: Array<Student> = [];
+  isStudentSelected = false;
 
   constructor(private batchService: BatchService, private studentService: StudentService) { }
 
@@ -96,10 +97,12 @@ export class ManageStudentsComponent implements OnInit {
   }
 
   selectStudent(student: Student) {
+    this.isStudentSelected = true;
     this.selectedStudent = student;
   }
 
   clear() {
+    this.isStudentSelected = false;
     this.selectedStudent = new Student();
   }
 

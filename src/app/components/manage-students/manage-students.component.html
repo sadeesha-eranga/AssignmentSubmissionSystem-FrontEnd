@@ -1,6 +1,6 @@
 <app-main-nav>
   <h1>Manage Students</h1>
-  <mat-expansion-panel #expdPanel>
+  <mat-expansion-panel #expdPanel [expanded]="isStudentSelected">
     <mat-expansion-panel-header>
       <mat-card-title>Student Details Form</mat-card-title>
     </mat-expansion-panel-header>
@@ -43,10 +43,10 @@
     </mat-card-content>
     <mat-card-actions>
       <div id="actionButtons">
-        <button (click)="clear()" mat-stroked-button >Clear</button>
-        <button (click)="deleteStudent()" mat-raised-button color="warn">Delete</button>
-        <button (click)="updateStudent()" mat-raised-button style="background-color: darkorange">Update</button>
-        <button (click)="saveStudent()" mat-raised-button color="primary">Save</button>
+        <button [disabled]="!isStudentSelected" (click)="clear()" mat-stroked-button >Clear</button>
+        <button [disabled]="!isStudentSelected" (click)="deleteStudent()" mat-raised-button color="warn">Delete</button>
+        <button [disabled]="!isStudentSelected" (click)="updateStudent()" mat-raised-button style="background-color: darkorange">Update</button>
+        <button [disabled]="isStudentSelected" (click)="saveStudent()" mat-raised-button color="primary">Save</button>
       </div>
     </mat-card-actions>
   </mat-expansion-panel>

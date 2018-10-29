@@ -1,6 +1,6 @@
 <app-main-nav>
   <h1>Manage Batches</h1>
-  <mat-expansion-panel>
+  <mat-expansion-panel [expanded]="isBatchSelected">
     <mat-expansion-panel-header>
       <mat-card-title>Batch Details Form</mat-card-title>
     </mat-expansion-panel-header>
@@ -25,9 +25,9 @@
     </mat-card-content>
     <mat-card-actions>
       <div id="actionButtons">
-        <button (click)="clear()" mat-stroked-button >Clear</button>
-        <button mat-raised-button style="background-color: darkorange" (click)="updateBatch()">Update</button>
-        <button mat-raised-button color="primary" (click)="saveBatch()">Save</button>
+        <button [disabled]="!isBatchSelected" (click)="clear()" mat-stroked-button >Clear</button>
+        <button [disabled]="!isBatchSelected" mat-raised-button style="background-color: darkorange" (click)="updateBatch()">Update</button>
+        <button [disabled]="isBatchSelected" mat-raised-button color="primary" (click)="saveBatch()">Save</button>
       </div>
     </mat-card-actions>
   </mat-expansion-panel>
